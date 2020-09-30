@@ -23,7 +23,6 @@ public class Main {
 
 	// Similar to "dir" command in Windows
 
-        String type = "";
         
         File all_files = new File(args[0]); // Right click on the project > Properties > Run > Arguments -> C:\Windows (Any directory)
         File paths[] = all_files.listFiles(); //
