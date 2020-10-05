@@ -1,4 +1,4 @@
-package textEditorUI;
+
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -17,12 +17,12 @@ import javax.swing.JFileChooser;
  *
  * @author Cristina Domenech <github.com/C-Domenech>
  */
-public class TextEditorUI extends javax.swing.JFrame {
+public class TxtEditor extends javax.swing.JFrame {
 
     /**
      * Creates new form textEditorUI
      */
-    public TextEditorUI() {
+    public TxtEditor() {
         initComponents();
     }
 
@@ -168,9 +168,9 @@ public class TextEditorUI extends javax.swing.JFrame {
                 reader.close();
                 textArea.setText(currentText);
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(TextEditorUI.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TxtEditor.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
-                Logger.getLogger(TextEditorUI.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TxtEditor.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         filePath.setText("Path: " + file.getPath());
@@ -182,11 +182,11 @@ public class TextEditorUI extends javax.swing.JFrame {
             try {
                 textArea.write(new OutputStreamWriter(new FileOutputStream(file), "utf-8"));
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(TextEditorUI.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TxtEditor.class.getName()).log(Level.SEVERE, null, ex);
             } catch (UnsupportedEncodingException ex) {
-                Logger.getLogger(TextEditorUI.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TxtEditor.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
-                Logger.getLogger(TextEditorUI.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TxtEditor.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
             saveAsSub.doClick();
@@ -218,11 +218,11 @@ public class TextEditorUI extends javax.swing.JFrame {
                 try {
                     textArea.write(new OutputStreamWriter(new FileOutputStream(file), "utf-8"));
                 } catch (FileNotFoundException ex) {
-                    Logger.getLogger(TextEditorUI.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TxtEditor.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (UnsupportedEncodingException ex) {
-                    Logger.getLogger(TextEditorUI.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TxtEditor.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (IOException ex) {
-                    Logger.getLogger(TextEditorUI.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TxtEditor.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }
@@ -249,14 +249,18 @@ public class TextEditorUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TextEditorUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TxtEditor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TextEditorUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TxtEditor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TextEditorUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TxtEditor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TextEditorUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TxtEditor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -266,7 +270,7 @@ public class TextEditorUI extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new TextEditorUI().setVisible(true);
+                new TxtEditor().setVisible(true);
             }
         });
     }
