@@ -1,4 +1,20 @@
-
+/*
+ * Copyright (C) 2020 Cristina Domenech <linkedin.com/in/c-domenech/>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+package com.cdomenech.text_editor;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -15,14 +31,14 @@ import javax.swing.JFileChooser;
 
 /**
  *
- * @author Cristina Domenech <github.com/C-Domenech>
+ * @author Cristina Domenech <linkedin.com/in/c-domenech/>
  */
-public class TxtEditor extends javax.swing.JFrame {
+public class TextEditor extends javax.swing.JFrame {
 
     /**
      * Creates new form textEditorUI
      */
-    public TxtEditor() {
+    public TextEditor() {
         initComponents();
     }
 
@@ -36,9 +52,8 @@ public class TxtEditor extends javax.swing.JFrame {
     private void initComponents() {
 
         textArea = new javax.swing.JTextArea();
-        verScrollBar = new javax.swing.JScrollBar();
-        filePath = new javax.swing.JTextField();
-        nWords = new javax.swing.JTextField();
+        filePath = new javax.swing.JLabel();
+        nWords = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         submenuFile = new javax.swing.JMenu();
         newSub = new javax.swing.JMenuItem();
@@ -50,26 +65,13 @@ public class TxtEditor extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("My Txt Editor");
+        setMinimumSize(new java.awt.Dimension(500, 530));
 
         textArea.setColumns(20);
         textArea.setLineWrap(true);
         textArea.setRows(5);
         textArea.setWrapStyleWord(true);
         textArea.setBorder(null);
-
-        filePath.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        filePath.setDoubleBuffered(true);
-        filePath.setEnabled(false);
-        filePath.setSelectionColor(new java.awt.Color(240, 240, 240));
-
-        nWords.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        nWords.setDoubleBuffered(true);
-        nWords.setEnabled(false);
-        nWords.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nWordsActionPerformed(evt);
-            }
-        });
 
         submenuFile.setText("File");
 
@@ -128,26 +130,21 @@ public class TxtEditor extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(filePath, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(nWords, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(textArea, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(verScrollBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
+                .addComponent(filePath, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(nWords, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addComponent(textArea)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(verScrollBar, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(textArea, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nWords, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(filePath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nWords, javax.swing.GroupLayout.DEFAULT_SIZE, 15, Short.MAX_VALUE)
+                    .addComponent(filePath)))
         );
 
         pack();
@@ -162,18 +159,19 @@ public class TxtEditor extends javax.swing.JFrame {
             try {
                 reader = new BufferedReader(new FileReader(file.getPath(), StandardCharsets.UTF_8));
                 String aux, currentText = "";
-                while((aux = reader.readLine()) != null) {
+                while ((aux = reader.readLine()) != null) {
                     currentText += aux + "\n";
                 }
                 reader.close();
                 textArea.setText(currentText);
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(TxtEditor.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TextEditor.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
-                Logger.getLogger(TxtEditor.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TextEditor.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        filePath.setText("Path: " + file.getPath());
+
+        filePath.setText(file.getPath());
     }//GEN-LAST:event_openSubActionPerformed
 
     private void saveSubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveSubActionPerformed
@@ -182,11 +180,11 @@ public class TxtEditor extends javax.swing.JFrame {
             try {
                 textArea.write(new OutputStreamWriter(new FileOutputStream(file), "utf-8"));
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(TxtEditor.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TextEditor.class.getName()).log(Level.SEVERE, null, ex);
             } catch (UnsupportedEncodingException ex) {
-                Logger.getLogger(TxtEditor.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TextEditor.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
-                Logger.getLogger(TxtEditor.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TextEditor.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
             saveAsSub.doClick();
@@ -213,24 +211,20 @@ public class TxtEditor extends javax.swing.JFrame {
             if (file != null) {
                 if (!file.getName().toLowerCase().endsWith(".txt")) {
                     file = new File(file.getParentFile(), file.getName() + ".txt");
-                    filePath.setText("Path: " + file.getPath());
+                    filePath.setText(file.getPath());
                 }
                 try {
                     textArea.write(new OutputStreamWriter(new FileOutputStream(file), "utf-8"));
                 } catch (FileNotFoundException ex) {
-                    Logger.getLogger(TxtEditor.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TextEditor.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (UnsupportedEncodingException ex) {
-                    Logger.getLogger(TxtEditor.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TextEditor.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (IOException ex) {
-                    Logger.getLogger(TxtEditor.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TextEditor.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }
     }//GEN-LAST:event_saveAsSubActionPerformed
-
-    private void nWordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nWordsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nWordsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,14 +243,70 @@ public class TxtEditor extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TxtEditor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TextEditor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TxtEditor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TextEditor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TxtEditor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TextEditor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TxtEditor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TextEditor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -270,16 +320,16 @@ public class TxtEditor extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new TxtEditor().setVisible(true);
+                new TextEditor().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem exitSub;
-    private javax.swing.JTextField filePath;
+    private javax.swing.JLabel filePath;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JTextField nWords;
+    private javax.swing.JLabel nWords;
     private javax.swing.JMenuItem newSub;
     private javax.swing.JMenuItem openSub;
     private javax.swing.JMenuItem saveAsSub;
@@ -287,6 +337,5 @@ public class TxtEditor extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator separator;
     private javax.swing.JMenu submenuFile;
     private javax.swing.JTextArea textArea;
-    private javax.swing.JScrollBar verScrollBar;
     // End of variables declaration//GEN-END:variables
 }
