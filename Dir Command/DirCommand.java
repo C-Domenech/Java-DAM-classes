@@ -27,6 +27,7 @@ Realizar un listado del contenido de una carpeta que se pase por línea de
 comandos, mostrando el tipo de archivo y el tamaño en formato "humano"
 mostrando la unidad (Kb, Mb, Gb,...) adecuada.
  */
+
 public class DirCommand {
 
     /**
@@ -37,6 +38,7 @@ public class DirCommand {
         File all_files = new File(args[0]); // "C:\Users\AlumnoManana20-21\Downloads" o "D:\Downloads"
         File paths[] = all_files.listFiles();
         for (File path : paths) {
+            // Get size, unit and final size from the functions
             long size = getSize(path);
             String[] unitSizeArr = getUnitSize(size);
 
