@@ -1,3 +1,5 @@
+package com.cdomenech.dir_command;
+
 /*
  * Copyright (C) 2020 Cristina Domenech <linkedin.com/in/c-domenech/>
  *
@@ -27,22 +29,23 @@ Realizar un listado del contenido de una carpeta que se pase por línea de
 comandos, mostrando el tipo de archivo y el tamaño en formato "humano"
 mostrando la unidad (Kb, Mb, Gb,...) adecuada.
  */
-
 public class DirCommand {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // Get argument from the command line
         File all_files = new File(args[0]); // "C:\Users\AlumnoManana20-21\Downloads" o "D:\Downloads"
         File paths[] = all_files.listFiles();
         for (File path : paths) {
-            // Get size, unit and final size from the functions
+            /**
+             * Get size, unit and final size from the functions
+             */
             long size = getSize(path);
             String[] unitSizeArr = getUnitSize(size);
-
-            // Print formatted results
+            /**
+             * Print formatted results
+             */
             if (path.isDirectory()) {
                 System.out.format("[D] %-30.30s  %-5s%s%n", path.getName(), unitSizeArr[0], unitSizeArr[1]);
             } else if (path.isFile()) {
@@ -52,16 +55,26 @@ public class DirCommand {
 
     }
 
-    // Get files size (bytes)
+    /**
+     * A recursive function that call itself to get all files and directories
+     * size in bytes
+     *
+     * @param path
+     *
+     * @return long size of directories and files
+     *
+     */
     public static long getSize(File path) {
         long size = 0;
-        // If it is a directory, get size of all files that are inside
         if (path.isDirectory()) {
             for (File file : path.listFiles()) {
                 if (file.isFile()) {
                     size += file.length();
                 } else {
-                    // Recursive function -> If it is a directory, the function call itself
+                    /**
+                     * Recursive function -> If it is a directory, the function
+                     * call itself
+                     */
                     size += getSize(file);
                 }
             }
@@ -72,7 +85,14 @@ public class DirCommand {
         return size;
     }
 
-    // Get unit depending on file size
+    /**
+     *
+     * @param size
+     *
+     * @return String Array with two elements: final size and unit (bytes, Kb,
+     * Mb, Gb)
+     *
+     */
     public static String[] getUnitSize(long size) {
         String unit = "";
         long finalSize = 0;
@@ -92,7 +112,7 @@ public class DirCommand {
         }
         String sizeStr = String.valueOf(finalSize);
         String[] unitSize = {sizeStr, unit};
-        // getUnitSize return a String array
+
         return unitSize;
     }
 
