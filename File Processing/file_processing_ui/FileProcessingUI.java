@@ -37,6 +37,7 @@ public class FileProcessingUI extends javax.swing.JFrame {
      */
     public FileProcessingUI() {
         initComponents();
+        // Create an instance of type CaesarCipher and RunLength
         cc = new CaesarCipher();
         rl = new RunLength();
     }
@@ -300,14 +301,21 @@ public class FileProcessingUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Get and send to the readFile method in CaesarCipher class all the required data
+     *
+     * @param evt
+     */
     private void btnRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRunActionPerformed
+        // Get the path of the selected file from the label
         String path = lbFile.getText();
+        // Turn it to a file
         File file = new File(path);
+        // Get the shift selected and the filename
         int shift = sldShift.getValue();
         String filename = tfFilename.getText();
+        // ActionCommand set to 0 -> Encrypt file and 1 -> Decrypt file 
         String op = btnGroupAction.getSelection().getActionCommand();
-        System.out.println("op " + op);
         int action = 0;
         String msg = "";
         if (Integer.parseInt(op) == 0) {
@@ -319,6 +327,7 @@ public class FileProcessingUI extends javax.swing.JFrame {
         }
 
         cc.readFile(file, shift, action, filename);
+        // Show a MessageDialog when the process is finished
         JOptionPane.showMessageDialog(rootPane, msg);
 
 
@@ -327,14 +336,21 @@ public class FileProcessingUI extends javax.swing.JFrame {
     private void sldShiftStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sldShiftStateChanged
         lbCurrentShift.setText("Current shift: " + Integer.toString(sldShift.getValue()));
     }//GEN-LAST:event_sldShiftStateChanged
-
+    /**
+     * Choose File method that use a filter for txt files and go to an specific
+     * directory
+     *
+     * @param evt
+     */
     private void btnChooseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseActionPerformed
+        // Set JFileChooser in the user's Desktop to make the experience better
         String userDir = System.getProperty("user.home");
         JFileChooser fc = new JFileChooser(userDir + "/Desktop");
+        // The file chooser is going to show only .txt format files
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Text Documents (*.txt)", "txt", "text");
         fc.setFileFilter(filter);
         fc.setDialogTitle("Select file");
-        fc.showOpenDialog(this);
+        fc.showOpenDialog(this); // Show JFileChooser
         File file = fc.getSelectedFile();
         lbFile.setText(file.getPath());
     }//GEN-LAST:event_btnChooseActionPerformed
@@ -354,7 +370,11 @@ public class FileProcessingUI extends javax.swing.JFrame {
     private void rbRLEDecompressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbRLEDecompressActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rbRLEDecompressActionPerformed
-
+    /**
+     * Get and send to the readFile method in RunLength class all the required data
+     *
+     * @param evt
+     */
     private void btnRLERunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRLERunActionPerformed
         String path = lbRLEFile.getText();
         File file = new File(path);
@@ -378,7 +398,12 @@ public class FileProcessingUI extends javax.swing.JFrame {
     private void tfFilenameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFilenameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfFilenameActionPerformed
-
+    /**
+     * Choose File method that use a filter for txt files and go to an specific
+     * directory
+     *
+     * @param evt
+     */
     private void btnRLEChooseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRLEChooseActionPerformed
         String userDir = System.getProperty("user.home");
         JFileChooser fc = new JFileChooser(userDir + "/Desktop");

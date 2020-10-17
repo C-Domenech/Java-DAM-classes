@@ -36,13 +36,25 @@ public class RunLength {
 
     String result = "";
 
+    /**
+     * Read every line of the selected file and send it to the compress or
+     * decompress method
+     *
+     * @param file File selected by the user
+     * @param action Number that select if we are going to compress or
+     * decompress 0 -> compress, 1 -> decompress
+     * @param filename Name for the result file given by the user
+     */
+// Read every line of the selected file
     public void readFile(File file, int action, String filename) {
+        // Check if there is a path
         if (!"".equals(file.getPath())) {
             BufferedReader reader;
             try {
                 reader = new BufferedReader(new FileReader(file.getPath(), StandardCharsets.UTF_8));
                 String aux, currentText = "";
                 while ((aux = reader.readLine()) != null) {
+                    // Convert every line into a char array
                     char[] chArray = aux.toCharArray();
                     if (action == 0) {
                         aux = compress(chArray);
@@ -63,6 +75,12 @@ public class RunLength {
         }
     }
 
+    /**
+     * Recursive function that compress the line: first number, then letter
+     *
+     * @param chArray A line converted into a char Array
+     * @return A compressed line
+     */
     private String compress(char[] chArray) {
         int pos = 1;
         if (chArray.length > 0) {
@@ -71,21 +89,36 @@ public class RunLength {
             }
             result += pos;
             result += chArray[0];
+            // Arrays.copyOfRange -> reduce the array from pos position until the end
             compress(Arrays.copyOfRange(chArray, pos, chArray.length));
         }
         return result;
     }
 
+    /**
+     *
+     * @param chArray A line converted into a char Array
+     * @return A decompressed line
+     */
     private String decompress(char[] chArray) {
         int num = 0;
         int letter = 1;
         if (chArray.length > 0) {
-            result += String.valueOf(chArray[letter]).repeat(Integer.parseInt(String.valueOf(chArray[num])));;
+            result += String.valueOf(chArray[letter]).repeat(Integer.parseInt(String.valueOf(chArray[num])));
+            // Arrays.copyOfRange -> reduce the array from pos position until the end
             decompress(Arrays.copyOfRange(chArray, letter + 1, chArray.length));
         }
         return result;
     }
 
+    /**
+     * Save the text into a new file which name has been given by the user It
+     * will be save in the same directory as the original file
+     *
+     * @param text The whole text
+     * @param parentPath Directory path of the file selected by the user
+     * @param filename Filename given by the user
+     */
     private void saveNewFile(String text, String parentPath, String filename) {
         try {
             File file = new File(parentPath + "/" + filename + ".txt");
