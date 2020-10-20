@@ -38,8 +38,10 @@ public class CaesarCipher {
      * decrypt method
      *
      * @param file File selected by the user
-     * @param shift Number which shift is going to have the encryption or decryption
-     * @param action Number that select if we are going to encrypt or decrypt 0 -> encrypt, 1 -> decrypt
+     * @param shift Number which shift is going to have the encryption or
+     * decryption
+     * @param action Number that select if we are going to encrypt or decrypt 0
+     * -> encrypt, 1 -> decrypt
      * @param filename Name for the result file given by the user
      */
     public void readFile(File file, int shift, int action, String filename) {
@@ -82,9 +84,10 @@ public class CaesarCipher {
             }
         }
     }
+
     /**
      * Encrypt every line sent by readFile method
-     * 
+     *
      * @param message Every line of the text
      * @param shift shift number to encrypt
      * @return String result is the line encrypted
@@ -94,7 +97,7 @@ public class CaesarCipher {
         message = message.toUpperCase();
         // Convert String into a char array
         for (char ch : message.toCharArray()) {
-            
+
             // Check if it is a letter
             if (Character.isLetter(ch)) {
                 int pos = ch;
@@ -115,9 +118,10 @@ public class CaesarCipher {
         // Return the encrypted String to the readFile method
         return result;
     }
-    
+
     /**
      * Revert what the encrypt method has done
+     *
      * @param message Every line of the text
      * @param shift shift number to decrypt
      * @return String result is the line decrypted
@@ -142,10 +146,11 @@ public class CaesarCipher {
         }
         return result;
     }
+
     /**
-     * Save the text into a new file which name has been given by the user
-     * It will be save in the same directory as the original file
-     * 
+     * Save the text into a new file which name has been given by the user It
+     * will be save in the same directory as the original file
+     *
      * @param text The whole text
      * @param parentPath Directory path of the file selected by the user
      * @param filename Filename given by the user

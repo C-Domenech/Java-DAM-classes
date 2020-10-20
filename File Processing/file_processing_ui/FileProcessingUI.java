@@ -302,7 +302,8 @@ public class FileProcessingUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     /**
-     * Get and send to the readFile method in CaesarCipher class all the required data
+     * Get and send to the readFile method in CaesarCipher class all the
+     * required data
      *
      * @param evt
      */
@@ -371,7 +372,8 @@ public class FileProcessingUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rbRLEDecompressActionPerformed
     /**
-     * Get and send to the readFile method in RunLength class all the required data
+     * Get and send to the readFile method in RunLength class all the required
+     * data
      *
      * @param evt
      */
