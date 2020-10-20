@@ -1,7 +1,18 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2020 Cristina Domenech <linkedin.com/in/c-domenech/>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 package com.cdomenech.clock_stopwatch_ui;
 
@@ -59,6 +70,7 @@ public class ClockStopwatchUI extends javax.swing.JFrame {
     private void initComponents() {
 
         opPanel = new javax.swing.JPanel();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
         clockPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         lbTime = new javax.swing.JLabel();
@@ -73,13 +85,20 @@ public class ClockStopwatchUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Clock & Stopwatch");
+        setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(600, 450));
         setResizable(false);
         setSize(new java.awt.Dimension(600, 450));
 
+        opPanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        clockPanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("CLOCK");
 
-        lbTime.setFont(new java.awt.Font("Lucida Console", 1, 55)); // NOI18N
+        lbTime.setFont(new java.awt.Font("alarm clock", 1, 55)); // NOI18N
         lbTime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbTime.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -87,32 +106,29 @@ public class ClockStopwatchUI extends javax.swing.JFrame {
         clockPanel.setLayout(clockPanelLayout);
         clockPanelLayout.setHorizontalGroup(
             clockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(clockPanelLayout.createSequentialGroup()
-                .addGroup(clockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(clockPanelLayout.createSequentialGroup()
-                        .addGap(258, 258, 258)
-                        .addComponent(jLabel1))
-                    .addGroup(clockPanelLayout.createSequentialGroup()
-                        .addGap(128, 128, 128)
-                        .addComponent(lbTime, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(150, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
+            .addComponent(lbTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         clockPanelLayout.setVerticalGroup(
             clockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(clockPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(122, 122, 122)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(117, 117, 117)
                 .addComponent(lbTime, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(153, Short.MAX_VALUE))
+                .addContainerGap(124, Short.MAX_VALUE))
         );
 
+        stopwatchPanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("STOPWATCH");
 
-        lbTimer.setFont(new java.awt.Font("Consolas", 1, 55)); // NOI18N
+        lbTimer.setFont(new java.awt.Font("alarm clock", 1, 55)); // NOI18N
         lbTimer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbTimer.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        btnStartStop.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnStartStop.setText("START");
         btnStartStop.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,6 +136,7 @@ public class ClockStopwatchUI extends javax.swing.JFrame {
             }
         });
 
+        btnReset.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnReset.setText("RESET");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,72 +148,93 @@ public class ClockStopwatchUI extends javax.swing.JFrame {
         stopwatchPanel.setLayout(stopwatchPanelLayout);
         stopwatchPanelLayout.setHorizontalGroup(
             stopwatchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(stopwatchPanelLayout.createSequentialGroup()
-                .addGroup(stopwatchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(stopwatchPanelLayout.createSequentialGroup()
-                        .addGap(248, 248, 248)
-                        .addComponent(jLabel3))
-                    .addGroup(stopwatchPanelLayout.createSequentialGroup()
-                        .addGap(128, 128, 128)
-                        .addGroup(stopwatchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbTimer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(stopwatchPanelLayout.createSequentialGroup()
-                                .addGap(0, 67, Short.MAX_VALUE)
-                                .addComponent(btnStartStop)
-                                .addGap(42, 42, 42)
-                                .addComponent(btnReset)
-                                .addGap(92, 92, 92)))))
-                .addGap(123, 123, 123))
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lbTimer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, stopwatchPanelLayout.createSequentialGroup()
+                .addContainerGap(164, Short.MAX_VALUE)
+                .addComponent(btnStartStop)
+                .addGap(90, 90, 90)
+                .addComponent(btnReset)
+                .addGap(170, 170, 170))
         );
         stopwatchPanelLayout.setVerticalGroup(
             stopwatchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(stopwatchPanelLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(96, 96, 96)
                 .addComponent(lbTimer, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                 .addGroup(stopwatchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnStartStop)
                     .addComponent(btnReset))
                 .addGap(40, 40, 40))
         );
 
-        javax.swing.GroupLayout opPanelLayout = new javax.swing.GroupLayout(opPanel);
-        opPanel.setLayout(opPanelLayout);
-        opPanelLayout.setHorizontalGroup(
-            opPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(opPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(clockPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(opPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(opPanelLayout.createSequentialGroup()
+        jLayeredPane1.setLayer(clockPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(stopwatchPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
+        jLayeredPane1.setLayout(jLayeredPane1Layout);
+        jLayeredPane1Layout.setHorizontalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(clockPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(stopwatchPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
         );
-        opPanelLayout.setVerticalGroup(
-            opPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, opPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(clockPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(opPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(opPanelLayout.createSequentialGroup()
+        jLayeredPane1Layout.setVerticalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(clockPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(stopwatchPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
-        btnClock.setText("CLOCK");
+        javax.swing.GroupLayout opPanelLayout = new javax.swing.GroupLayout(opPanel);
+        opPanel.setLayout(opPanelLayout);
+        opPanelLayout.setHorizontalGroup(
+            opPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(opPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jLayeredPane1))
+        );
+        opPanelLayout.setVerticalGroup(
+            opPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(opPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.Alignment.TRAILING))
+        );
+
+        chooserPanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnClock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clock.png"))); // NOI18N
+        btnClock.setBorderPainted(false);
+        btnClock.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnClock.setOpaque(false);
         btnClock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClockActionPerformed(evt);
             }
         });
 
-        btnStopwatch.setText("STOPWATCH");
+        btnStopwatch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stopwatch.png"))); // NOI18N
+        btnStopwatch.setBorderPainted(false);
+        btnStopwatch.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnStopwatch.setOpaque(false);
         btnStopwatch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnStopwatchActionPerformed(evt);
@@ -266,6 +304,7 @@ public class ClockStopwatchUI extends javax.swing.JFrame {
             btnStartStop.setText("START");
             timerSW.stop();
         }
+
     }//GEN-LAST:event_btnStartStopActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
@@ -325,6 +364,7 @@ public class ClockStopwatchUI extends javax.swing.JFrame {
     private javax.swing.JPanel clockPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLabel lbTime;
     private javax.swing.JLabel lbTimer;
     private javax.swing.JPanel opPanel;

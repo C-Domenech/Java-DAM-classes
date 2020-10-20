@@ -237,7 +237,6 @@ public class TextEditor extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("My Txt Editor");
         setMinimumSize(new java.awt.Dimension(510, 480));
-        setPreferredSize(new java.awt.Dimension(510, 460));
         setSize(new java.awt.Dimension(510, 460));
 
         textArea.setColumns(18);
@@ -364,7 +363,12 @@ public class TextEditor extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Open the explorer window, user select a file Its content is read and
+     * written in the text area
+     *
+     * @param evt
+     */
     private void openSubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openSubActionPerformed
         // Set JFileChooser in the user's Desktop to make the experience better
         String userDir = System.getProperty("user.home");
@@ -385,16 +389,20 @@ public class TextEditor extends javax.swing.JFrame {
                 }
                 reader.close();
                 textArea.setText(currentText);
+                filePath.setText(file.getPath());
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(TextEditor.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
                 Logger.getLogger(TextEditor.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-
-        filePath.setText(file.getPath());
     }//GEN-LAST:event_openSubActionPerformed
-
+    /**
+     * It save the text into the original file If it does not exist, call save
+     * as method
+     *
+     * @param evt
+     */
     private void saveSubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveSubActionPerformed
         File file = new File(filePath.getText());
         if (file.exists()) {
@@ -408,19 +416,33 @@ public class TextEditor extends javax.swing.JFrame {
                 Logger.getLogger(TextEditor.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
+            // If you try to save the file, but it does not exist, this method, call the save as method
             saveAsSub.doClick();
         }
     }//GEN-LAST:event_saveSubActionPerformed
-
+    /**
+     * Close the application
+     *
+     * @param evt
+     */
     private void exitSubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitSubActionPerformed
         System.exit(0);
     }//GEN-LAST:event_exitSubActionPerformed
-
+    /**
+     * Clear the text area for a new file
+     *
+     * @param evt
+     */
     private void newSubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newSubActionPerformed
         textArea.setText("");
         filePath.setText("New file");
     }//GEN-LAST:event_newSubActionPerformed
-
+    /**
+     * Open the Save as explorer window and the user go to the path and write
+     * the filename. It save the text into the file
+     *
+     * @param evt
+     */
     private void saveAsSubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsSubActionPerformed
         // Set JFileChooser in the user's Desktop to make the experience better
         String userDir = System.getProperty("user.home");
@@ -449,36 +471,64 @@ public class TextEditor extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_saveAsSubActionPerformed
-
+    /**
+     * Set visible the font chooser window
+     *
+     * @param evt
+     */
     private void fontSubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fontSubActionPerformed
         FontChooserUI.setVisible(true);
     }//GEN-LAST:event_fontSubActionPerformed
-
+    /**
+     * When the user select a font it appears in the superior label, and change
+     * the Sample
+     *
+     * @param evt
+     */
     private void listFontValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listFontValueChanged
         String selectedFont = listFont.getSelectedValue();
         tfFont.setText(selectedFont);
         tfSample.setFont(new Font(selectedFont, fc.getSelectedStyle(tfStyle.getText()), Integer.parseInt(tfSize.getText())));
     }//GEN-LAST:event_listFontValueChanged
-
+    /**
+     * When the user select a style it appears in the superior label, and change
+     * the Sample
+     *
+     * @param evt
+     */
     private void listStyleValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listStyleValueChanged
         String selectedStyle = listStyle.getSelectedValue();
         tfStyle.setText(selectedStyle);
         tfSample.setFont(new Font(tfFont.getText(), fc.getSelectedStyle(selectedStyle), Integer.parseInt(tfSize.getText())));
     }//GEN-LAST:event_listStyleValueChanged
-
+    /**
+     * When the user select a size it appears in the superior label, and change
+     * the Sample
+     *
+     * @param evt
+     */
     private void listSizeValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listSizeValueChanged
         String selectedSize = listSize.getSelectedValue();
         tfSize.setText(selectedSize);
         tfSample.setFont(new Font(tfFont.getText(), fc.getSelectedStyle(tfStyle.getText()), Integer.parseInt(selectedSize)));
     }//GEN-LAST:event_listSizeValueChanged
-
+    /**
+     * OK button set the selected font as the text area font and close the
+     * window
+     *
+     * @param evt
+     */
     private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
         // Set the font selected by the user
         textArea.setFont(new Font(tfFont.getText(), fc.getSelectedStyle(tfStyle.getText()), Integer.parseInt(tfSize.getText())));
         FontChooserUI.setVisible(false);
 
     }//GEN-LAST:event_btnOKActionPerformed
-
+    /**
+     * Cancel button close the window
+     *
+     * @param evt
+     */
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         FontChooserUI.setVisible(false);
     }//GEN-LAST:event_btnCancelActionPerformed

@@ -80,7 +80,8 @@ public class CalculatorUI extends javax.swing.JFrame {
         btnEqual = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(400, 520));
+        setTitle("Calculator");
+        setMinimumSize(new java.awt.Dimension(510, 520));
         setSize(new java.awt.Dimension(450, 520));
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentResized(java.awt.event.ComponentEvent evt) {
@@ -142,7 +143,7 @@ public class CalculatorUI extends javax.swing.JFrame {
         buttonsPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         buttonsPanel.setLayout(new java.awt.GridLayout(6, 4));
 
-        btnPercentage.setFont(new java.awt.Font("Lato", 0, 18)); // NOI18N
+        btnPercentage.setFont(new java.awt.Font("Lato", 0, 24)); // NOI18N
         btnPercentage.setText("%");
         btnPercentage.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPercentage.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -153,7 +154,7 @@ public class CalculatorUI extends javax.swing.JFrame {
         });
         buttonsPanel.add(btnPercentage);
 
-        btnSquareRoot.setFont(new java.awt.Font("Lato", 0, 18)); // NOI18N
+        btnSquareRoot.setFont(new java.awt.Font("Lato", 0, 24)); // NOI18N
         btnSquareRoot.setText("√");
         btnSquareRoot.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSquareRoot.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -164,7 +165,7 @@ public class CalculatorUI extends javax.swing.JFrame {
         });
         buttonsPanel.add(btnSquareRoot);
 
-        btnSquare.setFont(new java.awt.Font("Lato", 0, 18)); // NOI18N
+        btnSquare.setFont(new java.awt.Font("Lato", 0, 24)); // NOI18N
         btnSquare.setText("x²");
         btnSquare.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSquare.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -175,7 +176,7 @@ public class CalculatorUI extends javax.swing.JFrame {
         });
         buttonsPanel.add(btnSquare);
 
-        btnFraction.setFont(new java.awt.Font("Lato", 0, 18)); // NOI18N
+        btnFraction.setFont(new java.awt.Font("Lato", 0, 24)); // NOI18N
         btnFraction.setText("⅟ₓ");
         btnFraction.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnFraction.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -186,7 +187,7 @@ public class CalculatorUI extends javax.swing.JFrame {
         });
         buttonsPanel.add(btnFraction);
 
-        btnClearError.setFont(new java.awt.Font("Lato", 0, 18)); // NOI18N
+        btnClearError.setFont(new java.awt.Font("Lato", 0, 24)); // NOI18N
         btnClearError.setText("CE");
         btnClearError.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnClearError.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -197,7 +198,7 @@ public class CalculatorUI extends javax.swing.JFrame {
         });
         buttonsPanel.add(btnClearError);
 
-        btnClear.setFont(new java.awt.Font("Lato", 0, 18)); // NOI18N
+        btnClear.setFont(new java.awt.Font("Lato", 0, 24)); // NOI18N
         btnClear.setText("C");
         btnClear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnClear.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -208,7 +209,7 @@ public class CalculatorUI extends javax.swing.JFrame {
         });
         buttonsPanel.add(btnClear);
 
-        btnRemoveLastN.setFont(new java.awt.Font("Lato", 0, 18)); // NOI18N
+        btnRemoveLastN.setFont(new java.awt.Font("Lato", 0, 24)); // NOI18N
         btnRemoveLastN.setText("←");
         btnRemoveLastN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRemoveLastN.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -219,7 +220,7 @@ public class CalculatorUI extends javax.swing.JFrame {
         });
         buttonsPanel.add(btnRemoveLastN);
 
-        btnDiv.setFont(new java.awt.Font("Lato", 0, 18)); // NOI18N
+        btnDiv.setFont(new java.awt.Font("Lato", 0, 24)); // NOI18N
         btnDiv.setText("÷");
         btnDiv.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnDiv.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -231,7 +232,7 @@ public class CalculatorUI extends javax.swing.JFrame {
         buttonsPanel.add(btnDiv);
 
         btn7.setBackground(new java.awt.Color(204, 204, 204));
-        btn7.setFont(new java.awt.Font("Lato", 1, 18)); // NOI18N
+        btn7.setFont(new java.awt.Font("Lato", 1, 24)); // NOI18N
         btn7.setText("7");
         btn7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -244,7 +245,7 @@ public class CalculatorUI extends javax.swing.JFrame {
         buttonsPanel.add(btn7);
 
         btn8.setBackground(new java.awt.Color(204, 204, 204));
-        btn8.setFont(new java.awt.Font("Lato", 1, 18)); // NOI18N
+        btn8.setFont(new java.awt.Font("Lato", 1, 24)); // NOI18N
         btn8.setText("8");
         btn8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -257,7 +258,7 @@ public class CalculatorUI extends javax.swing.JFrame {
         buttonsPanel.add(btn8);
 
         btn9.setBackground(new java.awt.Color(204, 204, 204));
-        btn9.setFont(new java.awt.Font("Lato", 1, 18)); // NOI18N
+        btn9.setFont(new java.awt.Font("Lato", 1, 24)); // NOI18N
         btn9.setText("9");
         btn9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -269,7 +270,7 @@ public class CalculatorUI extends javax.swing.JFrame {
         });
         buttonsPanel.add(btn9);
 
-        btnMult.setFont(new java.awt.Font("Lato", 0, 18)); // NOI18N
+        btnMult.setFont(new java.awt.Font("Lato", 0, 24)); // NOI18N
         btnMult.setText("×");
         btnMult.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnMult.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -281,7 +282,7 @@ public class CalculatorUI extends javax.swing.JFrame {
         buttonsPanel.add(btnMult);
 
         btn4.setBackground(new java.awt.Color(204, 204, 204));
-        btn4.setFont(new java.awt.Font("Lato", 1, 18)); // NOI18N
+        btn4.setFont(new java.awt.Font("Lato", 1, 24)); // NOI18N
         btn4.setText("4");
         btn4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -294,7 +295,7 @@ public class CalculatorUI extends javax.swing.JFrame {
         buttonsPanel.add(btn4);
 
         btn5.setBackground(new java.awt.Color(204, 204, 204));
-        btn5.setFont(new java.awt.Font("Lato", 1, 18)); // NOI18N
+        btn5.setFont(new java.awt.Font("Lato", 1, 24)); // NOI18N
         btn5.setText("5");
         btn5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -307,7 +308,7 @@ public class CalculatorUI extends javax.swing.JFrame {
         buttonsPanel.add(btn5);
 
         btn6.setBackground(new java.awt.Color(204, 204, 204));
-        btn6.setFont(new java.awt.Font("Lato", 1, 18)); // NOI18N
+        btn6.setFont(new java.awt.Font("Lato", 1, 24)); // NOI18N
         btn6.setText("6");
         btn6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -319,7 +320,7 @@ public class CalculatorUI extends javax.swing.JFrame {
         });
         buttonsPanel.add(btn6);
 
-        btnSub.setFont(new java.awt.Font("Lato", 0, 18)); // NOI18N
+        btnSub.setFont(new java.awt.Font("Lato", 0, 24)); // NOI18N
         btnSub.setText("-");
         btnSub.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSub.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -331,7 +332,7 @@ public class CalculatorUI extends javax.swing.JFrame {
         buttonsPanel.add(btnSub);
 
         btn1.setBackground(new java.awt.Color(204, 204, 204));
-        btn1.setFont(new java.awt.Font("Lato", 1, 18)); // NOI18N
+        btn1.setFont(new java.awt.Font("Lato", 1, 24)); // NOI18N
         btn1.setText("1");
         btn1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -344,7 +345,7 @@ public class CalculatorUI extends javax.swing.JFrame {
         buttonsPanel.add(btn1);
 
         btn2.setBackground(new java.awt.Color(204, 204, 204));
-        btn2.setFont(new java.awt.Font("Lato", 1, 18)); // NOI18N
+        btn2.setFont(new java.awt.Font("Lato", 1, 24)); // NOI18N
         btn2.setText("2");
         btn2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -357,7 +358,7 @@ public class CalculatorUI extends javax.swing.JFrame {
         buttonsPanel.add(btn2);
 
         btn3.setBackground(new java.awt.Color(204, 204, 204));
-        btn3.setFont(new java.awt.Font("Lato", 1, 18)); // NOI18N
+        btn3.setFont(new java.awt.Font("Lato", 1, 24)); // NOI18N
         btn3.setText("3");
         btn3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -369,7 +370,7 @@ public class CalculatorUI extends javax.swing.JFrame {
         });
         buttonsPanel.add(btn3);
 
-        btnAdd.setFont(new java.awt.Font("Lato", 0, 18)); // NOI18N
+        btnAdd.setFont(new java.awt.Font("Lato", 0, 24)); // NOI18N
         btnAdd.setText("+");
         btnAdd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAdd.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -380,7 +381,7 @@ public class CalculatorUI extends javax.swing.JFrame {
         });
         buttonsPanel.add(btnAdd);
 
-        btnPlusMinus.setFont(new java.awt.Font("Lato", 0, 18)); // NOI18N
+        btnPlusMinus.setFont(new java.awt.Font("Lato", 0, 24)); // NOI18N
         btnPlusMinus.setText("±");
         btnPlusMinus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPlusMinus.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -392,7 +393,7 @@ public class CalculatorUI extends javax.swing.JFrame {
         buttonsPanel.add(btnPlusMinus);
 
         btn0.setBackground(new java.awt.Color(204, 204, 204));
-        btn0.setFont(new java.awt.Font("Lato", 1, 18)); // NOI18N
+        btn0.setFont(new java.awt.Font("Lato", 1, 24)); // NOI18N
         btn0.setText("0");
         btn0.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn0.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -404,7 +405,7 @@ public class CalculatorUI extends javax.swing.JFrame {
         });
         buttonsPanel.add(btn0);
 
-        btnDecimal.setFont(new java.awt.Font("Lato", 0, 18)); // NOI18N
+        btnDecimal.setFont(new java.awt.Font("Lato", 0, 24)); // NOI18N
         btnDecimal.setText(".");
         btnDecimal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnDecimal.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -416,7 +417,7 @@ public class CalculatorUI extends javax.swing.JFrame {
         buttonsPanel.add(btnDecimal);
 
         btnEqual.setBackground(new java.awt.Color(153, 153, 255));
-        btnEqual.setFont(new java.awt.Font("Lato", 0, 18)); // NOI18N
+        btnEqual.setFont(new java.awt.Font("Lato", 0, 24)); // NOI18N
         btnEqual.setText("=");
         btnEqual.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEqual.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -447,8 +448,8 @@ public class CalculatorUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     /**
      * Set visible or invisible the extra buttons
-     * 
-     * @param evt 
+     *
+     * @param evt
      */
     private void btnMoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoreActionPerformed
         if (!extraVisible) {
@@ -508,20 +509,23 @@ public class CalculatorUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btn9ActionPerformed
     /**
      * Check if the number is decimal before add a dot
-     * 
-     * @param evt 
+     *
+     * @param evt
      */
     private void btnDecimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDecimalActionPerformed
-        if (!isDecimal) {
-            lbLastOp.setText(lbLastOp.getText() + ".");
-            isDecimal = true;
-        }
+        if (lbLastOp.getText().contains(".")) {
 
+        } else {
+            if (lbLastOp.getText().length() > 0) {
+
+                lbLastOp.setText(lbLastOp.getText() + ".");
+            }
+        }
     }//GEN-LAST:event_btnDecimalActionPerformed
     /**
      * Clear everything
-     * 
-     * @param evt 
+     *
+     * @param evt
      */
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         lbLastOp.setText("");
@@ -529,33 +533,35 @@ public class CalculatorUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnClearActionPerformed
     /**
      * Clear only the last input
-     * 
-     * @param evt 
+     *
+     * @param evt
      */
     private void btnClearErrorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearErrorActionPerformed
         lbLastOp.setText("");
     }//GEN-LAST:event_btnClearErrorActionPerformed
     /**
      * Invert to negative or positive
-     * 
-     * @param evt 
+     *
+     * @param evt
      */
     private void btnPlusMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlusMinusActionPerformed
         String value = lbLastOp.getText();
-        if (!value.contains("-")) {
-            lbLastOp.setText("-" + value);
-        } else {
-            try {
-                lbLastOp.setText(value.split("-")[1]);
-            } catch (IndexOutOfBoundsException e) {
-                lbLastOp.setText("");
+        if (value.length() > 0) {
+            if (!value.contains("-")) {
+                lbLastOp.setText("-" + value);
+            } else {
+                try {
+                    lbLastOp.setText(value.split("-")[1]);
+                } catch (IndexOutOfBoundsException e) {
+                    lbLastOp.setText("");
+                }
             }
         }
     }//GEN-LAST:event_btnPlusMinusActionPerformed
     /**
      * Remove last number
-     * 
-     * @param evt 
+     *
+     * @param evt
      */
     private void btnRemoveLastNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveLastNActionPerformed
         String value = lbLastOp.getText();
@@ -568,8 +574,8 @@ public class CalculatorUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRemoveLastNActionPerformed
     /**
      * Resize font to a more legible size
-     * 
-     * @param evt 
+     *
+     * @param evt
      */
     private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -578,10 +584,10 @@ public class CalculatorUI extends javax.swing.JFrame {
         lbAllInputs.setFont(new Font("Lato", Font.PLAIN, (int) width / 80));
     }//GEN-LAST:event_formComponentResized
     /**
-     * Connect to the Calculator class and send the values
-     * It sets the result too
-     * 
-     * @param evt 
+     * Connect to the Calculator class and send the values It sets the result
+     * too
+     *
+     * @param evt
      */
     private void btnEqualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEqualActionPerformed
         Calculator cal = new Calculator();
@@ -602,8 +608,8 @@ public class CalculatorUI extends javax.swing.JFrame {
                     result = cal.add(toBeCalculatedValue, op2);
                     break;
             }
-        // One operator methods
-        } else if (sign.equals("%") || sign.equals("√") || sign.equals("²") || sign.equals("⅟ₓ")){
+            // One operator methods
+        } else if (sign.equals("%") || sign.equals("√") || sign.equals("²") || sign.equals("⅟ₓ")) {
             switch (sign) {
                 case "%":
                     result = cal.percentage(toBeCalculatedValue);
@@ -679,8 +685,8 @@ public class CalculatorUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFractionActionPerformed
     /**
      * Store the first value added and clear the label to continue
-     * 
-     * @param sign 
+     *
+     * @param sign
      */
     private void storeValue(String sign) {
         String value = lbLastOp.getText();
@@ -725,7 +731,6 @@ public class CalculatorUI extends javax.swing.JFrame {
         });
     }
     private String sign;
-    private boolean isDecimal = false;
     private boolean extraVisible = false;
     private double toBeCalculatedValue;
     private double result;

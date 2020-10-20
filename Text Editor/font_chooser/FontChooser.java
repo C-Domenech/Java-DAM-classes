@@ -24,6 +24,7 @@ import java.awt.GraphicsEnvironment;
  * @author Cristina Domenech <linkedin.com/in/c-domenech/>
  */
 public class FontChooser {
+
     // List of all the fonts in the system
     private final String[] fontList = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
     // Default font, style and size
@@ -48,7 +49,7 @@ public class FontChooser {
     public void setFont(String font) {
         this.font = font;
     }
-    
+
     public int getStyle() {
         return style;
     }
@@ -63,12 +64,14 @@ public class FontChooser {
 
     public void setSize(int size) {
         this.size = size;
-    } 
+    }
+
     /**
      * Method that convert a style font from String to int
-     * 
+     *
      * @param rawStyle Font choosed by the user
-     * @return style is the font converted into an int that the Font class can read
+     * @return style is the font converted into an int that the Font class can
+     * read
      */
     public int getSelectedStyle(String rawStyle) {
         switch (rawStyle) {
@@ -87,5 +90,5 @@ public class FontChooser {
 
         return style;
     }
-    
+
 }
