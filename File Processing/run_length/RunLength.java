@@ -40,12 +40,12 @@ public class RunLength {
      * Read every line of the selected file and send it to the compress or
      * decompress method
      *
-     * @param file File selected by the user
-     * @param action Number that select if we are going to compress or
-     * decompress 0 -> compress, 1 -> decompress
+     * @param file     File selected by the user
+     * @param action   Number that select if we are going to compress or decompress
+     *                 0 -> compress, 1 -> decompress
      * @param filename Name for the result file given by the user
      */
-// Read every line of the selected file
+    // Read every line of the selected file
     public void readFile(File file, int action, String filename) {
         // Check if there is a path
         if (!"".equals(file.getPath())) {
@@ -83,20 +83,31 @@ public class RunLength {
      */
     private String compress(char[] chArray) {
         int pos = 1;
+        // Check that there are elements in chArray
         if (chArray.length > 0) {
+            // While the position is smaller than the chArray length (it is not out of
+            // range)
+            // And the element in the first position (position 0) is equal than the next
+            // element (position 1)
             while (pos < chArray.length && chArray[0] == chArray[pos]) {
+                // Counter -> number of elements that are equal
                 pos++;
             }
+            // Add number of elements that are equal
             result += pos;
+            // Add the element
             result += chArray[0];
             // Arrays.copyOfRange -> reduce the array from pos position until the end
+            // Call method itselft but sending only the part of chArray that has not been
+            // checked
             compress(Arrays.copyOfRange(chArray, pos, chArray.length));
         }
         return result;
     }
 
     /**
-     *
+     * Recursive function that decompress the line: add letter a number of times
+     * 
      * @param chArray A line converted into a char Array
      * @return A decompressed line
      */
@@ -104,20 +115,24 @@ public class RunLength {
         int num = 0;
         int letter = 1;
         if (chArray.length > 0) {
+            // Add the element in second position (letter -> 1) and repeat it the number of
+            // times that shows the first position (num -> 0)
             result += String.valueOf(chArray[letter]).repeat(Integer.parseInt(String.valueOf(chArray[num])));
             // Arrays.copyOfRange -> reduce the array from pos position until the end
+            // Call method itselft but sending only the part of chArray that has not been
+            // added to the result
             decompress(Arrays.copyOfRange(chArray, letter + 1, chArray.length));
         }
         return result;
     }
 
     /**
-     * Save the text into a new file which name has been given by the user It
-     * will be save in the same directory as the original file
+     * Save the text into a new file which name has been given by the user It will
+     * be save in the same directory as the original file
      *
-     * @param text The whole text
+     * @param text       The whole text
      * @param parentPath Directory path of the file selected by the user
-     * @param filename Filename given by the user
+     * @param filename   Filename given by the user
      */
     private void saveNewFile(String text, String parentPath, String filename) {
         try {
